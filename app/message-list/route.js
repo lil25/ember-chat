@@ -6,9 +6,9 @@ export default Ember.Route.extend({
 	},
 	
 	actions: {
-        sendMessage(message) {
+        sendMessage(message) {/*
             const messageModel = this.store.createRecord('message', message);
-            messageModel.save();
+            messageModel.save();*/
         }
     }
 });

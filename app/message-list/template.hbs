@@ -1,14 +1,8 @@
 <div class="block_chat_messages well well-sm">
 	<ul class="media-list">
-		<li class="media">
-			<div class="media-left">
-				<img class="media-object" src="" alt="avatar">
-			</div>
-			<div class="media-body">
-				<h4 class="media-heading">Username</h4>
-				Lorem
-			</div>
-		</li>
+		{{#each model as |message index|}}
+			{{list-message message=message}}
+		{{/each}}
 	</ul>
 </div>
 

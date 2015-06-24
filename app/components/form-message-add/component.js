@@ -7,6 +7,8 @@ export default Ember.Component.extend({
             var username = 'username';
 			
             this.sendAction('addMessage', {avatar, username, message});
+			
+			message = '';
         }
     }
 });
