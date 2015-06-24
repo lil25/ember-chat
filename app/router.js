@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('message-list');
+  this.route('message-list', {path: 'chat'});
 });
 
 export default Router;
