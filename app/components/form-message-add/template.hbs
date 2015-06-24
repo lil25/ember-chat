@@ -1,1 +1,10 @@
+<form {{action 'addMessage' message on='submit'}}>
+	<div class="input-group">
+		{{input type="text" name="message" value=message class="form-control" placeholder="Write a message..."}}
+		<span class="input-group-btn">
+			<input type="submit" value="Send" class="btn btn-default">
+		</span>
+	</div>
+</form>
+
 {{yield}}
