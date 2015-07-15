@@ -1,0 +1,13 @@
+<div class="container center-block ">
+	<h2>Welcome to Ember Chat <small>beta</small></h2>
+	
+	{{#link-to 'message-list'}}Go to chat{{/link-to}}
+	
+	{{#if session.isAuthenticated}}
+		<a {{ action 'invalidateSession' }}>Logout</a>
+	{{else}}
+		<a {{ action 'authenticateSession' }}>Login</a>
+	{{/if}}
+	
+	{{outlet}}
+</div>
