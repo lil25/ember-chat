@@ -14,6 +14,22 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         sendMessage(message) {
             const messageModel = this.store.createRecord('message', message);
             messageModel.save();
+            
+            setTimeout(function() {
+                $('#chatMessages').animate({
+                    scrollTop: $('#chatMessages > ul').height()
+                }, 1000);
+            }, 300);
+        },
+        
+        loading(transition, originRoute) {
+            this.router.one('didTransition', function () {
+                setTimeout(function() {
+                    $('#chatMessages').animate({
+                        scrollTop: $('#chatMessages > ul').height()
+                    }, 1000);
+                }, 1000);
+            });
         }
     }
 });

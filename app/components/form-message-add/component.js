@@ -1,13 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	actions: {
+    actions: {
         addMessage(message) {
             var session = this.get('session');
 			var avatar = 'avatar';
             var username = 'username';
-			
-			console.log(session);
 			
 			if(session) {
 				avatar = session.content.secure.twitter.cachedUserProfile.profile_image_url_https;
@@ -15,6 +13,8 @@ export default Ember.Component.extend({
 			}
 			
             this.sendAction('addMessage', {avatar, username, message});
+            
+            $(this.element).find('input[type="text"]').val('');
         }
     }
 });
