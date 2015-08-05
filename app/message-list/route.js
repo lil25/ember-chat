@@ -7,22 +7,22 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	},
     
     afterModel: function(messages) {
-        console.log(messages.get('length'));
+        this.startScroll(1000);
+        
+        messages.addObserver('content.length', this, function() {
+            this.startScroll(300);
+        });
     },
     
-    startScroll: function(duration) {
-        if(!duration) duration = 1000;
+    startScroll: function(delay) {
+        if(!delay) delay = 1000;
 
         setTimeout(function() {
             $('#chatMessages').animate({
                 scrollTop: $('#chatMessages > ul').height()
             }, 1000);
-        }, duration);
-    }.on('init'),
-    
-    handleNewMessage : function() {
-        console.log('sdfgdg');
-    }.observes('content.length'),
+        }, delay);
+    },
 	
 	actions: {
 		sessionRequiresAuthentication() {
@@ -32,13 +32,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         sendMessage(message) {
             var self = this;
             const messageModel = this.store.createRecord('message', message);
-            messageModel.save().then(
-                function() {
-                    self.startScroll(300);
-                },
-                function() {
-                }
-            );
+            messageModel.save();
         }
     }
 });
