@@ -1,4 +1,3 @@
-
 import Base from 'simple-auth/authenticators/base';
 import Firebase from 'firebase';
 import config from '../config/environment';
