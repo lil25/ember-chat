@@ -8,9 +8,21 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     
     afterModel: function(messages) {
         this.startScroll(1000);
+        this.defineAuthor(messages.content);
         
-        messages.addObserver('content.length', this, function() {
+        messages.addObserver('content.length', this, function(sender, key, value, rev) {
+            this.defineAuthor(sender.content);
+            
             this.startScroll(300);
+        });
+    },
+    
+    defineAuthor: function(data) {
+        var session = this.get('session');
+        
+        $.each(data, function(num, obj) {
+            if(obj.get('username') == session.content.secure.twitter.username) obj.set('mine', true);
+            else obj.set('mine', false);
         });
     },
     

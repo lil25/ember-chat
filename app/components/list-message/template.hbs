@@ -1,10 +1,10 @@
-<li class="media">
+<li class="media {{if message.mine 'mine'}}">
 	<div class="media-left">
 		<img class="media-object" src="{{message.avatar}}" alt="avatar">
 	</div>
 	<div class="media-body">
 		<h4 class="media-heading">{{message.username}}</h4>
-		{{message.message}}
+		<span>{{message.message}}</span>
 	</div>
 </li>
 

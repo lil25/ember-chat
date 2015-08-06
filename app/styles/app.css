@@ -1,3 +1,12 @@
 a {cursor:pointer;}
 .block_chat_messages {height:400px; overflow:auto;}
 .block_chat_messages .media {padding-top:15px;}
+.block_chat_messages .media h4 {font-size:14px; font-weight:bold;}
+.block_chat_messages .media > div {display:block;}
+.block_chat_messages .media > div.media-left {padding:0px 10px 0px 0px; float:left;}
+.block_chat_messages .media > div.media-body {width:auto; margin:0px 58px 0px 0px;}
+.block_chat_messages .media > div.media-body span {padding:5px; display:inline-block; background-color:#ace2fc; border-radius:5px;}
+
+.block_chat_messages .media.mine > div.media-left {padding:0px 0px 0px 10px; float:right;}
+.block_chat_messages .media.mine > div.media-body {width:auto; margin:0px 0px 0px 58px; text-align:right;}
+.block_chat_messages .media.mine h4 {/*color:#337ab7;*/ text-align:right;}
