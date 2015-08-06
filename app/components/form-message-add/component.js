@@ -14,7 +14,7 @@ export default Ember.Component.extend({
 			
             this.sendAction('addMessage', {avatar, username, message});
             
-            $(this.element).find('input[type="text"]').val('');
+            this.$('input[type="text"]').val('');
         }
     }
 });
